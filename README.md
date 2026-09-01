@@ -36,3 +36,38 @@ Frågorna utgår från innehållet i presentationen.
 
 
 # 2 Prestandatest: insertion sort
+
+1. Vad har funktionen för tidskomplexitet?
+
+2. Skriv enhetstest som kontrollerar att funktionen kan sortera en lista med tal korrekt. Använd till exempel följande tre listor som testdata: [], [10], [10, 8, 6, 4, 2, 0]
+
+3. Skriv prestandatest som testar att sortera en riktigt lång, slumpad lista. Sikta på en körtid som är ca 100 ms, för att inte tiderna ska bli för osäkra. Du behöver först en funktion som kan generera en lång slumpad lista.
+def generate_list(size):  # funktion som returnerar en lista med size antal slumpade tal
+
+4. Skriv fler prestandatest för längre listor. Anteckna körtiderna och plotta dem i ett diagram med axlarna n (längden på listan) och t (körtiden som benchmark rapporterar).
+
+---
+1.
+````commandline
+def insertion_sort(lst):
+    result = []
+    for item in lst:
+        inserted = False
+        index = 0
+        while not inserted and index < len(result):
+            if item < result[index]:
+                result.insert(index, item)
+                inserted = True
+            index += 1
+        if not inserted:
+            result.append(item)
+    return result
+
+````
+I detta fall är n = antal element i ``lst``. Eftersom den yttre loopen kommer köras så många gånger som n är och den inre loopen också kommer köras baserat på n kan Big O skrivas som n^2. Alltså svaret är O(n^2).
+Hade dock den inre loopen varit en fast konstant text en till for loop där den är satt till 10 så hade den förmodligen sett ut som följande O(n * 10). Eftersom 10 är en konstant hade detta då förenklats till O(n).
+
+---
+2. I [Detta](Tests/test_insertion_sort.py) testfall ser vi att listan sorteras och testet blir grönt funktionen för sortering finner vi [Här](src/insterion_sort/test_insertion_sort.py).
+---
+3. 
