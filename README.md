@@ -68,6 +68,6 @@ I detta fall är n = antal element i ``lst``. Eftersom den yttre loopen kommer k
 Hade dock den inre loopen varit en fast konstant text en till for loop där den är satt till 10 så hade den förmodligen sett ut som följande O(n * 10). Eftersom 10 är en konstant hade detta då förenklats till O(n).
 
 ---
-2. I [Detta](Tests/test_insertion_sort.py) testfall ser vi att listan sorteras och testet blir grönt funktionen för sortering finner vi [Här](src/insterion_sort/test_insertion_sort.py).
+2. I [Detta](Tests/test_insertion_sort.py) testfall ser vi att listan sorteras och testet blir grönt funktionen, för att titta på den faktiska koden för funktionen klicka [Här](src/insertion_sort/insertion_sort.py).
 ---
 3. 
