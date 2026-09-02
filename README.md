@@ -3,7 +3,7 @@
 | # | Uppgift   | Beskrivning                                                      | Status |
 |---|-----------|------------------------------------------------------------------|--------|
 | 1 | Uppgift:1 | [Diskutera tillsammans](#1-diskutera-tillsammans)                | 🟢 Klar |
-| 2 | Uppgift:2 | [Prestandatest: insertion sort](#2-prestandatest-insertion-sort) | 🟡 Pågår |
+| 2 | Uppgift:2 | [Prestandatest: insertion sort](#2-prestandatest-insertion-sort) | 🟢 Klar |
 | 3 | Uppgift:3 | Prestandatest: merge sort                                        | 🔴 Ej påbörjad |
 ### Status
 - 🟢 **Klart**
@@ -71,5 +71,6 @@ Hade dock den inre loopen varit en fast konstant text en till for loop där den 
 2. I [Detta](Tests/insertion_merge/test_insertion_sort.py) testfall ser vi att listan sorteras och testet blir grönt funktionen, för att titta på den faktiska koden för funktionen klicka [Här](src/insertion_sort/insertion_sort.py).
 ---
 3. I denna uppgift skapar jag först en funktion för skapandet av en random list, funktionen ligger i test filen [Här](Tests/insertion_merge/test_insertion_merge_benchmark.py). I detta test fall använder vi oss av parametrarna ```large_random_list(2500,1, 50000))``` alltså längden på listan är 2500 element lång, sifforna som den kan välja mellan är från 1 - 50000, vilket på min dator ger en medeltid på ca 79ms. Min tanke är att pga skillnader i hårdvara chansar jag på att medeltiden kommer vara högre på Davids dator. vill man köra testet kan man använda terminalkommandot ``pytest --benchmark-columns="min,max,mean" -m Benchmark_insertion`` då testet använder min egna marker ``Benchmark_insertion``.
-
-4. 
+---
+5.  I detta test har jag tagit 4 olika listor med olika värden på ``n``, lagt in dem i ett spreadsheet och vi kan se resultatet på bilden nedan. Vill man kika på koden finner man den  [här](Tests/insertion_merge/test_insertion_sort.py). Jag har även gjort specifika markers just för detta test som fokuserar på att samla in data, marker för detta är ``data_collect``   
+![Insertion sort benchmark](images/data_benchmark.png)
