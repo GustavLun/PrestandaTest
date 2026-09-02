@@ -1,3 +1,4 @@
+
 def insertion_sort(lst):
     result = []
     for item in lst:
@@ -11,4 +12,6 @@ def insertion_sort(lst):
         if not inserted:
             result.append(item)
     return result
+
+
 

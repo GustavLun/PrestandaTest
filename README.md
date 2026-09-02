@@ -68,6 +68,8 @@ I detta fall är n = antal element i ``lst``. Eftersom den yttre loopen kommer k
 Hade dock den inre loopen varit en fast konstant text en till for loop där den är satt till 10 så hade den förmodligen sett ut som följande O(n * 10). Eftersom 10 är en konstant hade detta då förenklats till O(n).
 
 ---
-2. I [Detta](Tests/test_insertion_sort.py) testfall ser vi att listan sorteras och testet blir grönt funktionen, för att titta på den faktiska koden för funktionen klicka [Här](src/insertion_sort/insertion_sort.py).
+2. I [Detta](Tests/insertion_merge/test_insertion_sort.py) testfall ser vi att listan sorteras och testet blir grönt funktionen, för att titta på den faktiska koden för funktionen klicka [Här](src/insertion_sort/insertion_sort.py).
 ---
-3. 
+3. I denna uppgift skapar jag först en funktion för skapandet av en random list, funktionen ligger i test filen [Här](Tests/insertion_merge/test_insertion_merge_benchmark.py). I detta test fall använder vi oss av parametrarna ```large_random_list(2500,1, 50000))``` alltså längden på listan är 2500 element lång, sifforna som den kan välja mellan är från 1 - 50000, vilket på min dator ger en medeltid på ca 79ms. Min tanke är att pga skillnader i hårdvara chansar jag på att medeltiden kommer vara högre på Davids dator. vill man köra testet kan man använda terminalkommandot ``pytest --benchmark-columns="min,max,mean" -m Benchmark_insertion`` då testet använder min egna marker ``Benchmark_insertion``.
+
+4. 
