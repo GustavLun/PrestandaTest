@@ -4,7 +4,7 @@
 |---|-----------|------------------------------------------------------------------|--------|
 | 1 | Uppgift:1 | [Diskutera tillsammans](#1-diskutera-tillsammans)                | 🟢 Klar |
 | 2 | Uppgift:2 | [Prestandatest: insertion sort](#2-prestandatest-insertion-sort) | 🟢 Klar |
-| 3 | Uppgift:3 | Prestandatest: merge sort                                        | 🔴 Ej påbörjad |
+| 3 | Uppgift:3 | [Prestandatest: merge sort](#3-Prestandatest-merge-sort)         | 🟢 Klar |
 ### Status
 - 🟢 **Klart**
 - 🟡 **Halvvägs klar**
@@ -124,10 +124,11 @@ detta test använder samma fixture som tidigare unit test, för att se fixtures 
 3. & 4: Benchmark tester för merge_sort med samma listor som föregående uppgift finner du [här](Tests/merge_sort/test_merge_sort_benchmark.py).
 kör vi samma kommando i terminalen som tidigare `` pytest --benchmark-columns="min,max,mean" -m data_collect`` kör vi alla data_collect test, de från förra uppgiften och denna då de delar marker. 
 Nedan ser vi resultaten av ```merge_sort``` i en graf. 
+
 ![image](images/data_benchmark_merge.png)
 
 Den är lik den förra då den har på ett ungefär samma linjära kurva, tittar man mer noga kan man se att ``t(ms)`` är mycket kortare än tidigare tester och att den faktist är en logaritmisk kurva.
 Om vi då istället slänger in resultaten från båda i en graf kan vi jämföra dem lite mer tydligt. 
 ![image](images/data_benchmark_summary.png)
 
-Här kan vi tydligt se skillnaderna mellan de olika funktionerna och hur effektiva de faktiskt är.
+Här kan vi tydligt se skillnaderna mellan de olika funktionerna och hur effektiva de faktiskt är. ``merge_sort`` har en struktur som är mycket mer effektivare än ``insertion_merge``. 
