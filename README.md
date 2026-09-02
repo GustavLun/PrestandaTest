@@ -122,4 +122,12 @@ När dessa två kombineras blir det något i stil med ``O(n) * O(log n)`` som i 
 detta test använder samma fixture som tidigare unit test, för att se fixtures tryck [här](conftest.py). Den använder även samma Unit marker som tidigare. För att köra funktionen skriv ``pytest -m Unit`` i terminalen.
 ---
 3. & 4: Benchmark tester för merge_sort med samma listor som föregående uppgift finner du [här](Tests/merge_sort/test_merge_sort_benchmark.py).
-kör vi samma kommando i terminalen som tidigare `` pytest --benchmark-columns="min,max,mean" -m data_collect`` kör vi alla data_collect test, de från förra uppgiften och denna då de delar marker.
+kör vi samma kommando i terminalen som tidigare `` pytest --benchmark-columns="min,max,mean" -m data_collect`` kör vi alla data_collect test, de från förra uppgiften och denna då de delar marker. 
+Nedan ser vi resultaten av ```merge_sort``` i en graf. 
+![image](images/data_benchmark_merge.png)
+
+Den är lik den förra då den har på ett ungefär samma linjära kurva, tittar man mer noga kan man se att ``t(ms)`` är mycket kortare än tidigare tester och att den faktist är en logaritmisk kurva.
+Om vi då istället slänger in resultaten från båda i en graf kan vi jämföra dem lite mer tydligt. 
+![image](images/data_benchmark_summary.png)
+
+Här kan vi tydligt se skillnaderna mellan de olika funktionerna och hur effektiva de faktiskt är.
