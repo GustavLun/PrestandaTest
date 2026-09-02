@@ -74,3 +74,52 @@ Hade dock den inre loopen varit en fast konstant text en till for loop där den 
 ---
 4. I detta test har jag tagit 4 olika listor med olika värden på ``size`` som i detta fall representerar ``n``, lagt in dem i ett spreadsheet och vi kan se resultatet på bilden nedan. Vill man kika på koden finner man den  [Här](Tests/insertion_merge/test_insertion_merge_benchmark.py). Jag har även gjort specifika markers just för detta test som fokuserar på att samla in data, marker för detta är ``data_collect``   
 ![Insertion sort benchmark](images/data_benchmark.png)
+
+---
+# 3 Prestandatest: merge sort
+Betrakta följande funktioner. Merge sort är en algoritm som först delar upp en lista i halvor, tills det bara är ett element i varje del; sedan kombinerar alla delar så att listan blir sorterad. Idén är att en lista med ett element är automatiskt sorterad, och det är lätt att kombinera två sorterade listor till en och behålla sorteringen.
+````commandline
+def merge_sort(lst):
+    if len(lst) <= 1:
+        return lst
+
+    mid = len(lst) // 2
+    left = merge_sort(lst[:mid])
+    right = merge_sort(lst[mid:])
+
+    return merge(left, right)
+
+def merge(left, right):
+    result = []
+    i = j = 0
+
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+
+````
+1: Vad har funktionerna för tidskomplexitet?
+
+2: Skriv enhetstest som kontrollerar att funktionen kan sortera en lista med tal, på samma sätt som i föregående uppgift.
+
+3 & 4: Skriv prestandatest på samma sätt som i föregående uppgift. Använd samma listor i testen, så att du kan jämföra funktionerna.
+
+---
+
+1. I detta exempel så delas listan baserat på ``n`` i två halvor som sedan separat delas individuellt igen ner till single constant detta motsvarar förmodligen ett tidskomplex på ``log2(n)``. 
+Efter detta så körs även även merge funktionen där funktionen går igenom elementen för att skapa en sorterad lista som motsvara ``O(n)`` för varje nivå.
+När dessa två kombineras blir det något i stil med ``O(n) * O(log n)`` som i sin tur blir i förenklad form ``O(n log n)``.
+---
+2. Enhetstest som testar att funktionen faktiskt fungerar finner du [Här](Tests/merge_sort/test_merge_sort.py),
+detta test använder samma fixture som tidigare unit test, för att se fixtures tryck [här](conftest.py). Den använder även samma Unit marker som tidigare. För att köra funktionen skriv ``pytest -m Unit`` i terminalen.
+---
+3. & 4: Benchmark tester för merge_sort med samma listor som föregående uppgift finner du [här](Tests/merge_sort/test_merge_sort_benchmark.py).
+kör vi samma kommando i terminalen som tidigare `` pytest --benchmark-columns="min,max,mean" -m data_collect`` kör vi alla data_collect test, de från förra uppgiften och denna då de delar marker.
